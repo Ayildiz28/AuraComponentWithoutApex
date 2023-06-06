@@ -1,5 +1,27 @@
 ({
     
+    calcOpenClose: function(component, event, helper) {
+        console.log('calcOpenClose çalıştı....');
+        
+        var iscalcopen=component.get("v.isAuracalcOpen");
+        var text=component.get("v.buttonText");
+        console.log(iscalcopen);
+        console.log(text);
+        
+        component.set("v.isAuracalcOpen",!iscalcopen);
+        console.log("...işlem sonrası.....");
+        component.get("v.isAuracalcOpen")
+        
+        if(iscalcopen==false){
+             component.set("v.buttonText","HIDE");
+            
+        }else{
+            component.set("v.buttonText","SHOW");
+        }
+        
+    },
+    
+    
     doinit: function(component, event, helper) {
         console.log('doinit çalıştı....');
         

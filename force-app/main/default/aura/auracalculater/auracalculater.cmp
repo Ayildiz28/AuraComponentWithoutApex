@@ -6,9 +6,17 @@
         <aura:attribute name="numbery" type="decimal"/>
         <aura:attribute name="result" type="decimal"/>
     	<aura:attribute name="proccess" type="string"/>
-
     
-     <lightning:card variant="Narrow" title="Calculator Aura" iconName="standard:budget" footer="{!v.result}">
+    <aura:attribute name ="isAuracalcOpen" type="boolean" default="false"/> 
+    <aura:attribute name = "buttonText" type="string" default="SHOW"/>
+    
+    
+	
+    <lightning:button variant="brand" label="{!v.buttonText}" onclick="{! c.calcOpenClose }" />
+    
+    <aura:if isTrue="{!v.isAuracalcOpen}">
+        
+   <lightning:card variant="Narrow" title="Calculator Aura" iconName="standard:budget" footer="{!v.result}">
         <aura:set attribute="actions">
       	<lightning:button variant="brand" label="+" title="+" onclick="{! c.sum }" />
      	<lightning:button variant="brand" label="-" title="-" onclick="{! c.sub }" />
@@ -24,5 +32,14 @@
                      value="{!v.numbery}" formatter="decimal" step="0.01"/>
         </p>
              
-    </lightning:card>
+    </lightning:card>	
+        
+   <!-- <aura:set attribute="else">
+  
+        </aura:set> -->
+  </aura:if> 
+    
+    
+    
+     
 </aura:component>
